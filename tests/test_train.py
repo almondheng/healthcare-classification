@@ -25,4 +25,4 @@ def test_preprocess_data():
     assert "Gender_Female" in X.columns
     assert "Gender_Male" in X.columns
 
-    assert y.dtype == "int32"
+    assert y.dtype == "int64"
