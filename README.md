@@ -15,17 +15,7 @@ Python 3.10+
 
 ## Setup Instructions
 
-### 1. Cloud Infrastructure (AWS S3 for MLflow)
-- Install Terraform: https://www.terraform.io/downloads.html
-- Configure AWS credentials.
-- Provision S3 bucket for MLflow artifacts:
-  ```cmd
-  cd iac
-  terraform init
-  terraform apply
-  ```
-
-### 2. Install Python Dependencies
+### 1. Install Python Dependencies
 ```cmd
 python -m venv .venv/
 
@@ -36,11 +26,11 @@ source .venv/bin/activate # Unix/Linux/Mac
 pip install -r requirements.txt
 ```
 
-### 3. Download Dataset
+### 2. Download Dataset
 - Download the dataset from Kaggle: https://www.kaggle.com/datasets/prasad22/healthcare-dataset
 - Place `healthcare_dataset.csv` in a `data` folder at the project root.
 
-### 4. Experiment Tracking & Model Registry
+### 3. Experiment Tracking & Model Registry
 - Start MLflow tracking server (local or remote):
   ```cmd
 mlflow ui
@@ -52,7 +42,7 @@ mlflow ui
 python src/workflow.py
 ```
 
-### 6. Model Deployment
+### 4. Model Deployment
 - Build Docker image:
   ```cmd
   docker build -t healthcare-classification .
@@ -62,12 +52,12 @@ python src/workflow.py
   docker run -p 8000:8000 healthcare-classification
   ```
 
-### 7. Model Monitoring
+### 5. Model Monitoring
 ```cmd
 python src/monitor.py
 ```
 
-### 8. Testing & Code Quality
+### 6. Testing & Code Quality
 - Run unit/integration tests:
   ```cmd
   pytest tests
@@ -82,5 +72,5 @@ python src/monitor.py
   pre-commit install
   ```
 
-### 9. CI/CD
+### 7. CI/CD
 - GitHub Actions workflow is set up in `.github/workflows/ci.yml`.
